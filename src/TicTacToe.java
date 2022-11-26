@@ -67,11 +67,11 @@ public class TicTacToe {
 	public void printBoard() {	
 		System.out.println("Here is the current board:\n");
 		for(int r = 0; r < size; r++) {
-			System.out.print(" |");
+			System.out.print("|");
 			for(int c = 0; c < size; c++) {
 				System.out.print(board[r][c]);
-				if (c < size-1) {
-					System.out.print('|');
+				if (c < size) {
+					System.out.print("|");
 				}				
 			}
 			System.out.println();
