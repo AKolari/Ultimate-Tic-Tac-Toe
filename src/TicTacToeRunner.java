@@ -10,7 +10,7 @@ public class TicTacToeRunner {
 		
 		//Loops until finished:
 		do {
-			ttt.start();
+			ttt.start('x');
 		} 
 		
 		while (ttt.getWin() == false);

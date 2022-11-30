@@ -15,6 +15,8 @@ public class TicTacToe extends Space {
 	 */
 	protected Space[][] board; 
 	
+	protected int[] last_pos = new int[2]; 
+	
 	/**
 	 * The character of the current Player
 	 */
@@ -55,7 +57,11 @@ public class TicTacToe extends Space {
 		input = new Scanner(System.in); //For user input
 	}
 	
-	public void start() {
+	/**
+	 * Starts the game
+	 */
+	public void start(char player) { 
+		currentPlayer = player;
 		//Game Logic.
 //		System.out.println("Welcome to CSC330 Tic Tac Toe!");
 		
@@ -86,22 +92,36 @@ public class TicTacToe extends Space {
 					
 				} while(row == -1 || col == -1 || isOccupied(row, col));
 				
-				//We have a valid row and column:
+				System.out.println("\n\n");
+
+				//We have a valid row and column: 
+				
+				//Record pos chosen
+				last_pos[0] = row; 
+				last_pos[1] = col;
 				
 				board[row][col].value = currentPlayer; //Marks position 
+				
+				
 				win = isWinner(); //Win condition 
 				
 				if (win) {  //Win condition check
-					System.out.println("Congratulations! " + currentPlayer + " wins!!!");  
+					System.out.println( currentPlayer + " wins this board! \n");  
 					
+					//Play win sound
+					
+					System.out.println("This board is now occupied. You cannot go back to it.");
 					//Setting TTT char value (VITAL): 
-					value = currentPlayer;
+					value = currentPlayer; 
+					continue_game = false;
 					
 				} else {
 					changePlayer();
 				}
 				if (isDraw()) { //Draw check
-					System.out.println("DRAW! No one has won. I guess the only way to win is to not play the game.");
+					System.out.println("DRAW! No one has won. I guess the only way to win is to not play the game.\n"); 
+					System.out.println("This board is now occupied. You cannot go back to it.");
+					continue_game = false;
 				}
 				
 			
@@ -178,11 +198,13 @@ public class TicTacToe extends Space {
 	 * Prints board to console
 	 */
 	public void printBoard() {	
-		System.out.println("Here is the current board:\n");
+//		System.out.println("Here is the current board:\n");
 		
 		
 		for(int r = 0; r < size; r++) {
+			
 			System.out.print("|");
+			
 			//Prints n squares for each row
 			for(int c = 0; c < size; c++) {
 				System.out.print(board[r][c].value);
@@ -190,14 +212,8 @@ public class TicTacToe extends Space {
 					System.out.print("|");
 				}				
 			}
-			System.out.println(); 
 			
-			//Makes tops/bottoms of squares
-			if (r < size-1) {
-				for(int i = 0; i < 7; i++) {
-					System.out.print('-');
-				}
-			}
+			
 			System.out.println();
 		}
 	}
@@ -293,7 +309,7 @@ public class TicTacToe extends Space {
 	public boolean isDraw() {
 		for(int row = 0; row < size; row++) {			
 			for(int col = 0; col < size; col++) {
-				if (board[row][col].value == ' ') return false;
+				if (board[row][col].value == '_') return false;
 			}
 		}
 		//if we are here, all spaces are occupied

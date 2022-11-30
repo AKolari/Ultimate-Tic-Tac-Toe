@@ -1,4 +1,4 @@
 
 public class Space {
-	protected char value = ' ';
+	protected char value = '_';
 }

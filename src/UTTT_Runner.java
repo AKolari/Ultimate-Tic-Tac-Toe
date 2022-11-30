@@ -4,17 +4,16 @@ public class UTTT_Runner {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		UltimateTicTacToe ttt = new UltimateTicTacToe();
+			ttt.UTTT_start(); 
+//			ttt.UTTT_loop(); 
 		
-		///Will run TTT for A SINGLE turn
-		//	ttt.start(); 
-		
-		
-		//Loops until finished:
 		do {
-			ttt.start();
+			ttt.UTTT_loop();
 		} 
 		
 		while (ttt.getWin() == false);
-	}
+		
 
+} 
+	
 }
