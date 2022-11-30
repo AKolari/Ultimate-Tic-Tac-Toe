@@ -1,8 +1,9 @@
-public class TicTacToeRunner {
+
+public class UTTT_Runner {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TicTacToe ttt = new TicTacToe();
+		UltimateTicTacToe ttt = new UltimateTicTacToe();
 		
 		///Will run TTT for A SINGLE turn
 		//	ttt.start(); 
@@ -16,4 +17,4 @@ public class TicTacToeRunner {
 		while (ttt.getWin() == false);
 	}
 
-};
+}
