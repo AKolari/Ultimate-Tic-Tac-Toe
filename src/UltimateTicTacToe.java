@@ -145,42 +145,26 @@ public class UltimateTicTacToe extends TicTacToe {
 	/**
 	 * Prints boards to console
 	 */
-	public void printOuterBoard() {	 
+	
 		
-		TicTacToe O_Hold; 
-		Space I_Hold;
-		
-		for(int l=0; l<3; l++) {
-		for(int k=0; k<3; k++) {
-		for(int i=0; i<this.size; i++) {
-			TicTacToe target=outerBoard[l][i];
-			for(int j=0; j<3; j++) {
-				System.out.print(target.board[k][j].value);
-				System.out.print("|"); //Initial line
-			}
-			
-		}
-		System.out.println();
-		}
-		}
-		/*
-		
-		for (int R = 0; R < this.size; R++) { 
+	public void printOuterBoard() {
+		for (int R = 0; R < 3; R++) { 
 			
 			//OuterBoard Column
-			for(int C = 0; C < this.size; C++) { 
+			for(int C = 0; C < 3; C++) { 
 				
 				//InnerBoard Row
 				for(int r = 0; r < this.size; r++) {
 					
+					//Params fixed from Andi's code
+					TicTacToe O_Hold = outerBoard[R][r]; //Is making new TTTs a memory leak...?
 					System.out.print("|"); //Initial line
 					
 					//InnerBoard Column
-					for(int c = 0; c < this.size; c++) {
+					for(int c = 0; c < 3; c++) {
 						
-						O_Hold = outerBoard[R][C]; 
-						I_Hold = O_Hold.board[r][c];
-						System.out.print(I_Hold.value);
+						//Params fixed from Andi's code
+						System.out.print(O_Hold.board[C][c].value);
 						if (C < size) {
 							System.out.print("|"); //Prints rest of row
 						} 
@@ -200,8 +184,12 @@ public class UltimateTicTacToe extends TicTacToe {
 			System.out.println(); //Skip line 
 			
 		} //End of OuterBoard loop
-		*/	
+			
 	} //End of printBoard() 
+	
+		
+		
+		
 	
 	
 	
