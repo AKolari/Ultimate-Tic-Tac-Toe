@@ -32,7 +32,7 @@ public class UltimateTicTacToe extends TicTacToe {
 	 * UTTT_start() SHOULD run before UTTT_loop in the runner 
 	 */
 	
-	int[] start_pos = new int[2]; 
+	private int[] start_pos = new int[2]; 
 	
 	public void UTTT_start() {
 		
@@ -150,6 +150,20 @@ public class UltimateTicTacToe extends TicTacToe {
 		TicTacToe O_Hold; 
 		Space I_Hold;
 		
+		for(int l=0; l<3; l++) {
+		for(int k=0; k<3; k++) {
+		for(int i=0; i<this.size; i++) {
+			TicTacToe target=outerBoard[l][i];
+			for(int j=0; j<3; j++) {
+				System.out.print(target.board[k][j].value);
+				System.out.print("|"); //Initial line
+			}
+			
+		}
+		System.out.println();
+		}
+		}
+		/*
 		
 		for (int R = 0; R < this.size; R++) { 
 			
@@ -186,8 +200,13 @@ public class UltimateTicTacToe extends TicTacToe {
 			System.out.println(); //Skip line 
 			
 		} //End of OuterBoard loop
-			
+		*/	
 	} //End of printBoard() 
+	
+	
+	
+	
+	
 	
 	
 	
