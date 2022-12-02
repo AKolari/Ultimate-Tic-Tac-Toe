@@ -5,7 +5,7 @@ public class UTTT_Runner {
 		// TODO Auto-generated method stub
 		UltimateTicTacToe ttt = new UltimateTicTacToe();
 			ttt.UTTT_start(); 
-//			ttt.UTTT_loop(); 
+//			 
 		
 		do {
 			ttt.UTTT_loop();
